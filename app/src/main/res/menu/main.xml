@@ -1,0 +1,83 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="fr.Studio124.zurvivor.MainActivity" >
+
+ 	<item
+        android:id="@+id/action_carte"
+        android:title="@string/action_carte"
+        android:icon="@drawable/ic_action_map"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_profil"
+        android:title="@string/action_profil"
+        android:icon="@drawable/ic_action_person"
+        android:orderInCategory="101"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_inventaire"
+        android:title="@string/action_inventaire"
+        android:icon="@drawable/ic_action_collection"
+        android:orderInCategory="102"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_chat"
+        android:title="@string/action_chat"
+        android:icon="@drawable/ic_action_chat"
+        android:orderInCategory="103"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/action_search"
+        android:icon="@drawable/ic_action_search"
+        android:orderInCategory="104"
+        android:visible="false"
+        app:showAsAction="always">
+        
+        <menu>
+            <group
+                android:checkableBehavior="single" >
+    
+			    <item
+				    android:id="@+id/search_armes"
+				    android:orderInCategory="105"
+				    android:title="@string/menu_recherche_armes"
+				    android:checked="true"
+					app:showAsAction="never"/>
+				<item
+				    android:id="@+id/search_sante"
+				    android:orderInCategory="106"
+				    android:title="@string/menu_recherche_sante"
+				    app:showAsAction="never"/>
+				<item
+				    android:id="@+id/search_nourriture"
+				    android:orderInCategory="107"
+				    android:title="@string/menu_recherche_nourriture"
+				    android:visible="false"
+				    app:showAsAction="never"/>
+				<item
+				    android:id="@+id/search_supermarket"
+				    android:orderInCategory="108"
+				    android:title="@string/menu_recherche_supermarket"
+				    app:showAsAction="never"/>
+				<item
+				    android:id="@+id/search_boisson"
+				    android:orderInCategory="109"
+				    android:title="@string/menu_recherche_boisson"
+				    app:showAsAction="never"/>
+				<item
+				    android:id="@+id/search_animaux"
+				    android:orderInCategory="110"
+				    android:title="@string/menu_recherche_animaux"
+				    app:showAsAction="never"/>
+				<item
+				    android:id="@+id/search_baston"
+				    android:orderInCategory="111"
+				    android:title="@string/menu_recherche_baston"
+				    app:showAsAction="never"/>
+			</group>
+		</menu>
+	</item>
+
+</menu>
