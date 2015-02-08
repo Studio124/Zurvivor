@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/menu_creation_compte_texte_pseudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_creation_compte_pseudo" />
+    <EditText
+        android:id="@+id/menu_creation_compte_editText_pseudo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@id/menu_creation_compte_texte_pseudo" />
+
+    <TextView
+        android:id="@+id/menu_creation_compte_texte_pays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_creation_compte_editText_pseudo"
+        android:text="@string/menu_creation_compte_pays" />
+    <EditText
+        android:id="@+id/menu_creation_compte_editText_pays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@id/menu_creation_compte_texte_pays" />
+
+    <TextView
+        android:id="@+id/menu_creation_compte_texte_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_creation_compte_editText_pays"
+        android:text="@string/menu_creation_compte_mail" />
+    <EditText
+        android:id="@+id/menu_creation_compte_editText_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/menu_creation_compte_texte_mail" />
+
+    <TextView
+        android:id="@+id/menu_creation_compte_texte_motDePasse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_creation_compte_editText_mail"
+        android:text="@string/menu_creation_compte_motDePasse" />
+    <EditText
+        android:id="@+id/menu_creation_compte_editText_motDePasse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@id/menu_creation_compte_texte_motDePasse" />
+
+    <TextView
+        android:id="@+id/menu_creation_compte_texte_confirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_creation_compte_editText_motDePasse"
+        android:text="@string/menu_creation_compte_confirmation" />
+    <EditText
+        android:id="@+id/menu_creation_compte_editText_confirmation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_below="@id/menu_creation_compte_texte_confirmation" />
+
+    <Button
+        android:id="@+id/menu_creation_compte_bouton_creer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_creation_compte_creer"
+        android:layout_below="@id/menu_creation_compte_editText_confirmation" />
+
+</RelativeLayout>

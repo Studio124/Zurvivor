@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zurvivor_menu_3" >
+
+    <ImageView
+        android:id="@+id/profil_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/zomb_profil"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="40dp" />
+
+    <TextView
+        android:id="@+id/profil_renseignements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/profil_image"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/profil_burger_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/burger_full"
+        android:layout_below="@id/profil_image"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_burger_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/burger_full"
+        android:layout_toRightOf="@id/profil_burger_1"
+        android:layout_below="@id/profil_image"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_burger_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/burger_full"
+        android:layout_toRightOf="@id/profil_burger_2"
+        android:layout_below="@id/profil_image"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_burger_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/burger_half"
+        android:layout_toRightOf="@id/profil_burger_3"
+        android:layout_below="@id/profil_image"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_burger_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/burger_empty"
+        android:layout_toRightOf="@id/profil_burger_4"
+        android:layout_below="@id/profil_image"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_biohazard_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/biohazard_full"
+        android:layout_below="@id/profil_burger_1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_biohazard_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/biohazard_full"
+        android:layout_toRightOf="@id/profil_biohazard_1"
+        android:layout_below="@id/profil_burger_1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_biohazard_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/biohazard_half"
+        android:layout_toRightOf="@id/profil_biohazard_2"
+        android:layout_below="@id/profil_burger_1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_biohazard_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/biohazard_empty"
+        android:layout_toRightOf="@id/profil_biohazard_3"
+        android:layout_below="@id/profil_burger_1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp" />
+
+    <ImageView
+        android:id="@+id/profil_biohazard_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/biohazard_empty"
+        android:layout_toRightOf="@id/profil_biohazard_4"
+        android:layout_below="@id/profil_burger_1"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp" />
+
+</RelativeLayout>

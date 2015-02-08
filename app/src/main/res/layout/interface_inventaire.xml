@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zurvivor_menu_3"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/layout_haut"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dip"
+        android:layout_weight="1" >
+
+        <Button
+            android:id="@+id/image_inventaire_arme_principale"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/tronconneuse"
+            android:onClick="armePrincipale" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_centre"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dip"
+        android:layout_weight="1" >
+
+        <Button
+            android:id="@+id/image_inventaire_arme_secondaire"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/hachette"
+            android:onClick="armeSecondaire" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_bas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dip"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/image_inventaire_objet1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/la_villageoise"
+            android:onClick="objet1" />
+
+        <Button
+            android:id="@+id/image_inventaire_objet2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/cat"
+            android:onClick="objet2" />
+    </LinearLayout>
+
+</LinearLayout>

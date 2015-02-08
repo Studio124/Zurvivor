@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Zurvivor</string>
+    <string name="title_activity_maps">Zurvivor</string>
+
+    <!-- Menu identification -->
+
+    <string name="menu_identification_titre">Identification</string>
+    <string name="menu_identification_pseudo">Pseudonyme</string>
+    <string name="menu_identification_motDePasse">Mot de passe</string>
+    <string name="menu_identification_bouton_jouer">Jouer</string>
+    <string name="menu_identification_bouton_creer">Créer un compte.</string>
+
+    <!-- Menu création de compte -->
+
+    <string name="menu_creation_compte_titre">Création d\'un compte</string>
+    <string name="menu_creation_compte_pseudo">Login :</string>
+    <string name="menu_creation_compte_motDePasse">Mot de passe :</string>
+    <string name="menu_creation_compte_confirmation">Confirmer le mot de passe :</string>
+    <string name="menu_creation_compte_mail">Mail :</string>
+    <string name="menu_creation_compte_pays">Pays :</string>
+    <string name="menu_creation_compte_creer">Créer</string>
+
+    <!-- Menu recherche -->
+    <string name="menu_recherche_nourriture">Nourriture</string>
+    <string name="menu_recherche_boisson">Boisson</string>
+    <string name="menu_recherche_baston">Baston</string>
+    <string name="menu_recherche_supermarket">Supermarket</string>
+    <string name="menu_recherche_sante">Santé</string>
+    <string name="menu_recherche_animaux">Animaux</string>
+    <string name="menu_recherche_armes">Armes</string>
+    <string name="action_carte">Carte</string>
+    <string name="action_profil">Profil</string>
+    <string name="action_inventaire">Inventaire</string>
+    <string name="action_chat">Chat</string>
+    <string name="action_search">Search</string>
+
+</resources>

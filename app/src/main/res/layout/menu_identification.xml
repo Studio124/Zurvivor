@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/zurvivor_menu" >
+
+    <EditText
+        android:id="@+id/menu_identifictaion_editText_identification"
+        android:textColorHint="#FFFFFF"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:hint="@string/menu_identification_pseudo"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/menu_identification_editText_motDePasse"
+        android:textColor="#FFFFFF"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/menu_identification_editText_motDePasse"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:hint="@string/menu_identification_motDePasse"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPassword"
+        android:layout_centerInParent="true"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/menu_identification_bouton_jouer"
+        android:layout_width="125sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_identification_editText_motDePasse"
+        android:layout_centerHorizontal="true"
+        android:text="@string/menu_identification_bouton_jouer"
+        android:onClick="jouer" />
+
+    <TextView
+        android:id="@+id/menu_identification_bouton_creer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menu_identification_bouton_jouer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5sp"
+        android:clickable="true"
+        android:text="@string/menu_identification_bouton_creer"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic"
+        android:onClick="creer" />
+
+</RelativeLayout>
