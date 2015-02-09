@@ -179,8 +179,8 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
                     search = "cemetery|funeral_home";
                     etat = true;
                 } break;
-                case R.id.action_carte : {
-                    intent = new Intent(getApplicationContext(), InterfaceCarte.class);
+                case R.id.action_chat : {
+                    intent = new Intent(getApplicationContext(), InterfaceChat.class);
                     startActivity(intent);
                 } break;
                 case R.id.action_profil : {

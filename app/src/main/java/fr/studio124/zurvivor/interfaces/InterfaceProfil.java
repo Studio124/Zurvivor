@@ -52,10 +52,6 @@ public class InterfaceProfil extends ActionBarActivity {
                     intent = new Intent(getApplicationContext(), InterfaceCarte.class);
                     startActivity(intent);
                 } break;
-                case R.id.action_profil : {
-                    intent = new Intent(getApplicationContext(), InterfaceProfil.class);
-                    startActivity(intent);
-                } break;
                 case R.id.action_inventaire : {
                     intent = new Intent(getApplicationContext(), InterfaceInventaire.class);
                     startActivity(intent);

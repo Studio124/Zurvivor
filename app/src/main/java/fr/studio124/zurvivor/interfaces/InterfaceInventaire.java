@@ -134,10 +134,6 @@ public class InterfaceInventaire extends ActionBarActivity {
                     intent = new Intent(getApplicationContext(), InterfaceProfil.class);
                     startActivity(intent);
                 } break;
-                case R.id.action_inventaire : {
-                    intent = new Intent(getApplicationContext(), InterfaceInventaire.class);
-                    startActivity(intent);
-                } break;
                 case R.id.action_chat : {
                     intent = new Intent(getApplicationContext(), InterfaceChat.class);
                     startActivity(intent);
