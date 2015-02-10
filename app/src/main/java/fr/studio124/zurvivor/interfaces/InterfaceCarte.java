@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -13,12 +14,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -66,7 +70,11 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
     private String search = "police",
                     choix = "armes";
 
-    Fouille test = null;
+    private Fouille fouille = null;
+
+    private Circle circle = null;
+
+    private boolean etatRadius = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +90,7 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
         cercueilIcon = R.drawable.cercueil_icon;
         caddieIcon = R.drawable.caddie_icon;
 
-        test = new Fouille(this);
+        fouille = new Fouille(this);
 
         if(theMap==null){
             //map not instantiated yet
@@ -156,6 +164,7 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
         int id = item.getItemId();
 
         boolean etat = false;
+
 
         if (id != 0) {
             switch (id) {
@@ -247,9 +256,11 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
 
         userMarker = theMap.addMarker(new MarkerOptions()
                 .position(lastLatLng)
-                .title("Votre position")
+                .title("Vous")
                 .icon(BitmapDescriptorFactory.fromResource(userIcon))
                 .snippet("Dernier emplacement connu"));
+
+        fouille.setUserPosition(userMarker);
 
         theMap.animateCamera(CameraUpdateFactory.newLatLng(lastLatLng), 3000, null);
 
@@ -263,7 +274,6 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
 
         locMan.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 30000, 0, this);
     }
-
 
     private class GetPlaces extends AsyncTask<String, Void, String> {
         //fetch and parse place data
@@ -319,8 +329,8 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
                 }
             }
 
-            theMap.setOnMarkerClickListener(test);
-            test.setChoix(choix);
+            theMap.setOnMarkerClickListener(fouille);
+            fouille.setChoix(choix);
 
             try {
                 //parse JSON
@@ -415,6 +425,26 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
                     }
                 }
             }
+        }
+    }
+
+    public void onRadius(View view) {
+
+        if (!etatRadius) {
+            // Instantiates a new CircleOptions object and defines the center and radius
+            CircleOptions circleOptions = new CircleOptions()
+                    .center(userMarker.getPosition())
+                    .fillColor(0x40336600)
+                    .strokeColor(0x40000000)
+                    .radius(800); // In meters
+
+            // Get back the mutable Circle
+            circle = theMap.addCircle(circleOptions);
+
+            etatRadius = true;
+        } else {
+            circle.remove();
+            etatRadius = false;
         }
     }
 }
