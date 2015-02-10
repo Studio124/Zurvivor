@@ -1,6 +1,8 @@
 package fr.studio124.zurvivor.interfaces;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -11,6 +13,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,6 +39,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import fr.studio124.zurvivor.Fouille;
 import fr.studio124.zurvivor.R;
 
 /**
@@ -59,7 +63,10 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
 
     private MarkerOptions[] places;
 
-    private String search = "police";
+    private String search = "police",
+                    choix = "armes";
+
+    Fouille test = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +82,7 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
         cercueilIcon = R.drawable.cercueil_icon;
         caddieIcon = R.drawable.caddie_icon;
 
+        test = new Fouille(this);
 
         if(theMap==null){
             //map not instantiated yet
@@ -153,30 +161,37 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
             switch (id) {
                 case R.id.search_armes : {
                     search = "police";
+                    choix = "armes";
                     etat = true;
                 } break;
                 case R.id.search_sante : {
                     search = "health|hospital|pharmacy";
+                    choix = "sante";
                     etat = true;
                 } break;
                 case R.id.search_nourriture : {
                     search = "bakery|food|restaurant";
+                    choix = "nourriture";
                     etat = true;
                 } break;
                 case R.id.search_supermarket : {
                     search = "grocery_or_supermarket|shopping_mall|store";
+                    choix = "supermarket";
                     etat = true;
                 } break;
                 case R.id.search_boisson : {
                     search = "bar|cafe|liquor_store";
+                    choix = "boisson";
                     etat = true;
                 } break;
                 case R.id.search_animaux : {
                     search = "pet_store|veterinary_care";
+                    choix = "animaux";
                     etat = true;
                 } break;
                 case R.id.search_baston : {
                     search = "cemetery|funeral_home";
+                    choix = "baston";
                     etat = true;
                 } break;
                 case R.id.action_chat : {
@@ -232,9 +247,9 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
 
         userMarker = theMap.addMarker(new MarkerOptions()
                 .position(lastLatLng)
-                .title("You are here")
+                .title("Votre position")
                 .icon(BitmapDescriptorFactory.fromResource(userIcon))
-                .snippet("Your last recorded location"));
+                .snippet("Dernier emplacement connu"));
 
         theMap.animateCamera(CameraUpdateFactory.newLatLng(lastLatLng), 3000, null);
 
@@ -304,6 +319,9 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
                 }
             }
 
+            theMap.setOnMarkerClickListener(test);
+            test.setChoix(choix);
+
             try {
                 //parse JSON
                 JSONObject resultObject = new JSONObject(result);
@@ -336,8 +354,6 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
 
                         JSONArray types = placeObject.getJSONArray("types");
 
-                        System.out.println(search);
-
                         for(int t=0; t<types.length(); t++){
                             //what type is it
                             String thisType=types.get(t).toString();
@@ -348,7 +364,6 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
                             }
                             else if(search.equals("bakery%7Cfood%7Crestaurant")){
                                 currIcon = steackIcon;
-                                break;
                             }
                             else if(search.equals("cemetery%7Cfuneral_home")){
                                 currIcon = cercueilIcon;
@@ -378,12 +393,14 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
 
 
                     if(missingValue)    places[p]=null;
-                    else
-                        places[p]=new MarkerOptions()
+                    else {
+
+                        places[p] = new MarkerOptions()
                                 .position(placeLL)
                                 .title(placeName)
                                 .icon(BitmapDescriptorFactory.fromResource(currIcon))
                                 .snippet(vicinity);
+                    }
                 }
             }
             catch (Exception e) {
@@ -393,8 +410,9 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
             if(places!=null && placeMarkers!=null){
                 for(int p=0; p<places.length && p<placeMarkers.length; p++){
                     //will be null if a value was missing
-                    if(places[p]!=null)
-                        placeMarkers[p]=theMap.addMarker(places[p]);
+                    if(places[p]!=null) {
+                        placeMarkers[p] = theMap.addMarker(places[p]);
+                    }
                 }
             }
         }

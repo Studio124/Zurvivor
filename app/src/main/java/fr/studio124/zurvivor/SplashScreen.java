@@ -16,12 +16,25 @@ public class SplashScreen extends Activity {
 
     private MediaPlayer mPlayer = null;
 
+    private GPSTracker gps;
+
+    private double latitude,
+            longitude;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen_splash_activity);
 
         playSound(R.raw.splash);
+
+        gps = new GPSTracker(this);
+
+        // Getting latitude of the current location
+        latitude = gps.getLatitude();
+
+        // Getting longitude of the current location
+        longitude = gps.getLongitude();
 
         new Handler().postDelayed(new Runnable() {
 
