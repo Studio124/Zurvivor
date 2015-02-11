@@ -34,3 +34,6 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+# API KEY
+google_maps_api.xml
