@@ -1,6 +1,7 @@
 package fr.studio124.zurvivor.interfaces;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -15,10 +16,14 @@ public class InterfaceChat extends ActionBarActivity {
 
     private Intent intent = null;
 
+    private MediaPlayer mPlayer = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.interface_chat);
+
+        playSound(R.raw.chat);
 
     }
 
@@ -27,7 +32,7 @@ public class InterfaceChat extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.main, menu);
 
         MenuItem item = menu.findItem(R.id.action_chat);
-        item.setVisible(false);
+        item.setEnabled(false);
         this.invalidateOptionsMenu();
 
         return true;
@@ -60,5 +65,29 @@ public class InterfaceChat extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void playSound(int resId) {
+        if(mPlayer != null) {
+            mPlayer.stop();
+            mPlayer.release();
+        }
+        mPlayer = MediaPlayer.create(this, resId);
+        mPlayer.start();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(mPlayer != null) {
+            mPlayer.stop();
+            mPlayer.release();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPlayer = null;
     }
 }

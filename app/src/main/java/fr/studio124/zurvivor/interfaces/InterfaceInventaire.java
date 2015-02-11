@@ -111,7 +111,7 @@ public class InterfaceInventaire extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.main, menu);
 
         MenuItem item = menu.findItem(R.id.action_inventaire);
-        item.setVisible(false);
+        item.setEnabled(false);
         this.invalidateOptionsMenu();
 
         return true;

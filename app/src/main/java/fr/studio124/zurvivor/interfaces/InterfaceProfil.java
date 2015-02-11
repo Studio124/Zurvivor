@@ -33,7 +33,7 @@ public class InterfaceProfil extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.main, menu);
 
         MenuItem item = menu.findItem(R.id.action_profil);
-        item.setVisible(false);
+        item.setEnabled(false);
         this.invalidateOptionsMenu();
 
         return true;

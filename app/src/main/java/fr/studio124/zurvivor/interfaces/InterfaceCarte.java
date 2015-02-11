@@ -148,7 +148,7 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
         MenuItem itemCarte = menu.findItem(R.id.action_carte),
                 itemSearch = menu.findItem(R.id.action_search);
 
-        itemCarte.setVisible(false);
+        itemCarte.setEnabled(false);
         itemSearch.setVisible(true);
 
         this.invalidateOptionsMenu();
