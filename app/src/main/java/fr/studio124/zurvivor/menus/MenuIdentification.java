@@ -26,6 +26,8 @@ public class MenuIdentification extends ActionBarActivity {
 
     private int mainMusic;
 
+    private boolean pause = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +63,13 @@ public class MenuIdentification extends ActionBarActivity {
     public void jouer(View view) {
         playSound(R.raw.jouer, false);
 
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
         Intent intent = new Intent(getApplicationContext(), fr.studio124.zurvivor.interfaces.InterfaceCarte.class);
         startActivity(intent);
 
@@ -94,14 +103,18 @@ public class MenuIdentification extends ActionBarActivity {
             mPlayer.stop();
             mPlayer.setLooping(false);
             mPlayer.release();
+            pause = true;
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mPlayer = MediaPlayer.create(this, mainMusic);
-        mPlayer.setLooping(true);
-        mPlayer.start();
+        if (pause) {
+            mPlayer = MediaPlayer.create(this, mainMusic);
+            mPlayer.setLooping(true);
+            mPlayer.start();
+            pause = false;
+        }
     }
 }
