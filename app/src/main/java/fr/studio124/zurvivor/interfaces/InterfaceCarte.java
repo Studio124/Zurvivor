@@ -1,10 +1,7 @@
 package fr.studio124.zurvivor.interfaces;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -12,10 +9,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -446,5 +443,15 @@ public class InterfaceCarte extends ActionBarActivity implements LocationListene
             circle.remove();
             etatRadius = false;
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+        }
+
+        return true;
     }
 }

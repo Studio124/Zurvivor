@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -79,6 +80,8 @@ public class InterfaceChat extends ActionBarActivity {
     @Override
     public void onPause() {
         super.onPause();
+
+
         if(mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();
@@ -89,5 +92,21 @@ public class InterfaceChat extends ActionBarActivity {
     protected void onResume() {
         super.onResume();
         mPlayer = null;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+        }
+
+        return true;
     }
 }

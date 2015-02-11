@@ -24,12 +24,16 @@ public class MenuIdentification extends ActionBarActivity {
 
     private MediaPlayer mPlayer = null;
 
+    private int mainMusic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_identification);
 
-        playSound(R.raw.accueil);
+        playSound(R.raw.accueil, true);
+
+        mainMusic = R.raw.accueil;
 
         /** Récupère le locationManager qui gère la localisation */
         LocationManager locManager;
@@ -55,17 +59,13 @@ public class MenuIdentification extends ActionBarActivity {
 
     // Bouton Jouer du menu d'identification
     public void jouer(View view) {
-        playSound(R.raw.jouer);
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        playSound(R.raw.jouer, false);
 
         Intent intent = new Intent(getApplicationContext(), fr.studio124.zurvivor.interfaces.InterfaceCarte.class);
         startActivity(intent);
+
+        // close this activity
+        finish();
     }
 
     // Bouton Créer du menu d'identification
@@ -74,21 +74,25 @@ public class MenuIdentification extends ActionBarActivity {
         startActivity(intent);
     }
 
-    private void playSound(int resId) {
+    private void playSound(int resId, boolean main) {
         if(mPlayer != null) {
             mPlayer.stop();
             mPlayer.release();
         }
+
         mPlayer = MediaPlayer.create(this, resId);
-        mPlayer.setLooping(true);
+        if (main)
+            mPlayer.setLooping(true);
         mPlayer.start();
     }
 
     @Override
     public void onPause() {
         super.onPause();
+
         if(mPlayer != null) {
             mPlayer.stop();
+            mPlayer.setLooping(false);
             mPlayer.release();
         }
     }
@@ -96,6 +100,8 @@ public class MenuIdentification extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mPlayer = null;
+        mPlayer = MediaPlayer.create(this, mainMusic);
+        mPlayer.setLooping(true);
+        mPlayer.start();
     }
 }
