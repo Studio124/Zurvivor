@@ -80,6 +80,7 @@ public class MenuIdentification extends ActionBarActivity {
             mPlayer.release();
         }
         mPlayer = MediaPlayer.create(this, resId);
+        mPlayer.setLooping(true);
         mPlayer.start();
     }
 
