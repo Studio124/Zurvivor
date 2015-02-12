@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import fr.studio124.zurvivor.PermissionGps;
 import fr.studio124.zurvivor.R;
@@ -28,10 +29,16 @@ public class MenuIdentification extends ActionBarActivity {
 
     private boolean pause = false;
 
+    private RelativeLayout identification = null,
+                            creation = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_identification);
+
+        identification = (RelativeLayout) findViewById(R.id.identification);
+        creation = (RelativeLayout) findViewById(R.id.creation);
 
         playSound(R.raw.accueil, true);
 
@@ -64,7 +71,7 @@ public class MenuIdentification extends ActionBarActivity {
         playSound(R.raw.jouer, false);
 
         try {
-            Thread.sleep(200);
+            Thread.sleep(400);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -79,8 +86,14 @@ public class MenuIdentification extends ActionBarActivity {
 
     // Bouton Créer du menu d'identification
     public void creer(View view) {
-        intent = new Intent(getApplicationContext(), fr.studio124.zurvivor.menus.MenuCreationCompte.class);
-        startActivity(intent);
+        identification.setVisibility(View.INVISIBLE);
+        creation.setVisibility(View.VISIBLE);
+    }
+
+    // Bouton Retour du menu d'identification
+    public void retour(View view) {
+        identification.setVisibility(View.VISIBLE);
+        creation.setVisibility(View.INVISIBLE);
     }
 
     private void playSound(int resId, boolean main) {

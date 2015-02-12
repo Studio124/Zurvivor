@@ -2,49 +2,153 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/zurvivor_menu" >
+    android:background="@drawable/zurvivor_menu">
 
-    <EditText
-        android:id="@+id/menu_identifictaion_editText_identification"
-        android:textColorHint="#FFFFFF"
-        android:layout_width="200sp"
-        android:layout_height="wrap_content"
-        android:hint="@string/menu_identification_pseudo"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/menu_identification_editText_motDePasse"
-        android:textColor="#FFFFFF"
-        android:inputType="textPersonName" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/identification">
 
-    <EditText
-        android:id="@+id/menu_identification_editText_motDePasse"
-        android:layout_width="200sp"
-        android:layout_height="wrap_content"
-        android:hint="@string/menu_identification_motDePasse"
-        android:textColorHint="#FFFFFF"
-        android:inputType="textPassword"
-        android:layout_centerInParent="true"
-        android:textColor="#FFFFFF" />
+        <EditText
+            android:id="@+id/menu_identifictaion_editText_identification"
+            android:textColorHint="#FFFFFF"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/menu_identification_pseudo"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/menu_identification_editText_motDePasse"
+            android:textColor="#FFFFFF"
+            android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/menu_identification_bouton_jouer"
-        android:layout_width="125sp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/menu_identification_editText_motDePasse"
-        android:layout_centerHorizontal="true"
-        android:text="@string/menu_identification_bouton_jouer"
-        android:onClick="jouer" />
+        <EditText
+            android:id="@+id/menu_identification_editText_motDePasse"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:hint="@string/menu_identification_motDePasse"
+            android:textColorHint="#FFFFFF"
+            android:inputType="textPassword"
+            android:layout_centerInParent="true"
+            android:textColor="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/menu_identification_bouton_creer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/menu_identification_bouton_jouer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5sp"
-        android:clickable="true"
-        android:text="@string/menu_identification_bouton_creer"
-        android:textColor="#FFFFFF"
-        android:textStyle="italic"
-        android:onClick="creer" />
+        <Button
+            android:id="@+id/menu_identification_bouton_jouer"
+            android:layout_width="125sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/menu_identification_editText_motDePasse"
+            android:layout_centerHorizontal="true"
+            android:text="@string/menu_identification_bouton_jouer"
+            android:onClick="jouer" />
+
+        <TextView
+            android:id="@+id/menu_identification_bouton_creer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/menu_identification_bouton_jouer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5sp"
+            android:clickable="true"
+            android:text="@string/menu_identification_bouton_creer_compte"
+            android:textColor="#FFFFFF"
+            android:textStyle="italic"
+            android:onClick="creer" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/creation"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/menu_creation_compte_texte_pseudo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text="@string/menu_creation_compte_pseudo" />
+        <EditText
+            android:id="@+id/menu_creation_compte_editText_pseudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:inputType="text"
+            android:layout_below="@id/menu_creation_compte_texte_pseudo" />
+
+        <TextView
+            android:id="@+id/menu_creation_compte_texte_pays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/menu_creation_compte_editText_pseudo"
+            android:text="@string/menu_creation_compte_pays" />
+        <EditText
+            android:id="@+id/menu_creation_compte_editText_pays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:inputType="text"
+            android:layout_below="@id/menu_creation_compte_texte_pays" />
+
+        <TextView
+            android:id="@+id/menu_creation_compte_texte_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/menu_creation_compte_editText_pays"
+            android:text="@string/menu_creation_compte_mail" />
+        <EditText
+            android:id="@+id/menu_creation_compte_editText_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:layout_below="@id/menu_creation_compte_texte_mail" />
+
+        <TextView
+            android:id="@+id/menu_creation_compte_texte_motDePasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/menu_creation_compte_editText_mail"
+            android:text="@string/menu_creation_compte_motDePasse" />
+        <EditText
+            android:id="@+id/menu_creation_compte_editText_motDePasse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:inputType="textPassword"
+            android:layout_below="@id/menu_creation_compte_texte_motDePasse" />
+
+        <TextView
+            android:id="@+id/menu_creation_compte_texte_confirmation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:layout_below="@id/menu_creation_compte_editText_motDePasse"
+            android:text="@string/menu_creation_compte_confirmation" />
+        <EditText
+            android:id="@+id/menu_creation_compte_editText_confirmation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:inputType="textPassword"
+            android:layout_below="@id/menu_creation_compte_texte_confirmation" />
+
+        <Button
+            android:id="@+id/menu_creation_compte_bouton_creer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_identification_bouton_creer"
+            android:layout_below="@id/menu_creation_compte_editText_confirmation" />
+
+        <Button
+            android:id="@+id/menu_creation_compte_bouton_retour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_identification_bouton_retour"
+            android:onClick="retour"
+            android:layout_below="@id/menu_creation_compte_editText_confirmation"
+            android:layout_toRightOf="@id/menu_creation_compte_bouton_creer" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

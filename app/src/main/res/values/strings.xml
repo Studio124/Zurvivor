@@ -10,7 +10,10 @@
     <string name="menu_identification_pseudo">Pseudonyme</string>
     <string name="menu_identification_motDePasse">Mot de passe</string>
     <string name="menu_identification_bouton_jouer">Jouer</string>
-    <string name="menu_identification_bouton_creer">Créer un compte.</string>
+    <string name="menu_identification_bouton_creer_compte">Créer un compte.</string>
+    <string name="menu_identification_bouton_creer">Créer</string>
+    <string name="menu_identification_bouton_retour">Retour</string>
+
 
     <!-- Menu création de compte -->
 
